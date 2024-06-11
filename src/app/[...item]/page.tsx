@@ -1,14 +1,9 @@
-'use client'
-
-import { ROUTE_PATH, isParentRoute, routePaths, routes } from '@/routes'
+'use client';
 
 const ItemPage = ({ params: { item } }: { params: { item: string[] } }) => {
-  const path = ['', ...item].join('/') as ROUTE_PATH
-  const route = routes[path]
-  if (!routePaths.includes(path) || isParentRoute(route) || !route.children) return null
+  console.debug('item:', item); // ['item1', 'item2', 'item3']
+  const path = [...item].join('/');
+  console.debug('path:', path); // abc
+};
 
-  const Component = route.children
-  return <Component />
-}
-
-export default ItemPage
+export default ItemPage;
