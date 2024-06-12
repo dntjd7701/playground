@@ -5,59 +5,56 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-const ParentGnbItem = ({ route, currentPath }: { route: ParentRoute; currentPath: ROUTE_PATH }) => {
-  // 높이 지정을 해줘야 css가 부드럽게 됌.
-  const open = routes[currentPath].link === currentPath;
+const ParentGnbItem = ({ route }: { route: ParentRoute }) => {
+  const { item = [] } = useParams();
+  console.debug('item:', item);
+  const parentRoot = item.length > 0 ? routes[`/${item[0]}` as ROUTE_PATH] : routes['/'];
+  console.debug('parentRoot:', parentRoot);
+  const currentPath = ['', ...item].join('/') as ROUTE_PATH;
+  console.debug('currentPath:', currentPath);
+
   return (
-    <li className={classNames('parent', `items-${route.children.length}`, { open: false })}>
-      <Link href={'/test2'}>{route.name}</Link>
+    <li
+      className={classNames('parent', `items-${parentRoot.children?.length}`, {
+        open: (Array.isArray(parentRoot?.children) && parentRoot.children.includes(currentPath)) || parentRoot.link === currentPath,
+      })}>
+      <Link href={route.link}>{route.name}</Link>
       <ul className='subRoutes'>
         {route.children.map((r) => (
-          <GnbItem
-            route={routes[r]}
-            currentPath={currentPath}
-          />
+          <GnbItem route={routes[r]} />
         ))}
       </ul>
     </li>
   );
 };
 
-const ChildGnbItem = ({ route, currentPath }: { route: ChildRoute; currentPath: ROUTE_PATH }) => {
+const ChildGnbItem = ({ route }: { route: ChildRoute }) => {
+  const { item = [] } = useParams();
+  const currentPath = ['', ...item].join('/') as ROUTE_PATH;
+
   return (
-    <li className={classNames({ active: (route.link = currentPath) })}>
+    <li className={classNames({ active: route.link === currentPath })}>
       <Link href={route.link}>{route.name}</Link>
     </li>
   );
 };
 
-const GnbItem = ({ route, currentPath }: { route: ROUTE; currentPath: ROUTE_PATH }) =>
-  isParentRoute(route) ? (
-    <ParentGnbItem
-      route={route}
-      currentPath={currentPath}
-    />
-  ) : (
-    <ChildGnbItem
-      route={route}
-      currentPath={currentPath}
-    />
-  );
+const GnbItem = ({ route }: { route: ROUTE }) => (isParentRoute(route) ? <ParentGnbItem route={route} /> : <ChildGnbItem route={route} />);
 
 const Gnb = () => {
-  const { item = [] } = useParams();
-  const currentPath = ['', ...item].join('/') as ROUTE_PATH;
-  console.debug('currentPath:', currentPath);
   return (
     <aside>
-      <h1>
-        Side bar<sub>FE WS</sub>
-      </h1>
+      <Link href={routes['/'].link}>
+        <h1>
+          Side bar<sub>FE WS</sub>
+        </h1>
+      </Link>
+
       <ul className='mainRoutes'>
         {gnbRootList.map((route: ROUTE) => (
           <GnbItem
+            key={route.key}
             route={route}
-            currentPath={currentPath}
           />
         ))}
       </ul>

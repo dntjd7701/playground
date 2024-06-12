@@ -1,7 +1,8 @@
 'use client';
 
-export const routePaths = ['/', '/test1', '/test2', '/test2/vanilla', '/test2/react'] as const;
+export const routePaths = ['/', '/blog', '/playground', '/playground/Accordian', '/playground/test'] as const;
 
+//routePaths의 요소에 해당 '/', '/blog', '/playground'...
 export type ROUTE_PATH = (typeof routePaths)[number];
 
 export type BaseRoute = {
@@ -23,30 +24,30 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: '/',
     link: '/',
     name: 'home',
-    children: ['/test1', '/test2'],
+    children: ['/blog', '/playground'],
   },
-  '/test1': {
-    key: '/test1',
-    link: '/test1',
-    name: '테스트1',
+  '/blog': {
+    key: '/blog',
+    link: '/blog',
+    name: '블로그',
     children: null,
   },
-  '/test2': {
-    key: '/test2',
-    link: '/test2/vanilla',
-    name: '테스트2',
-    children: ['/test2/vanilla', '/test2/react'],
+  '/playground': {
+    key: '/playground',
+    link: '/playground',
+    name: '놀이터',
+    children: ['/playground/Accordian', '/playground/test'],
   },
-  '/test2/vanilla': {
-    key: '/test2/vanilla',
-    link: '/test2/vanilla',
-    name: 'vanilla',
+  '/playground/Accordian': {
+    key: '/playground/Accordian',
+    link: '/playground/Accordian',
+    name: '아코디언',
     children: null,
   },
-  '/test2/react': {
-    key: '/test2/react',
-    link: '/test2/react',
-    name: 'react',
+  '/playground/test': {
+    key: '/playground/test',
+    link: '/playground/test',
+    name: 'test',
     children: null,
   },
 };

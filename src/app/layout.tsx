@@ -3,8 +3,8 @@ import './globals.scss';
 import Gnb from './gnb';
 
 export const metadata: Metadata = {
-  title: 'UI요소모음 | FE재남',
-  description: 'Vanilla / React로 UI요소 만들기',
+  title: 'WS Playground',
+  // description: 'Vanilla / React로 UI요소 만들기',
 };
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
