@@ -34,7 +34,7 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
   },
   '/playground': {
     key: '/playground',
-    link: '/playground',
+    link: '/playground/Accordian',
     name: '놀이터',
     children: ['/playground/Accordian', '/playground/test'],
   },

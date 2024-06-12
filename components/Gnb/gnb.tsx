@@ -4,6 +4,7 @@ import { ChildRoute, ParentRoute, ROUTE, ROUTE_PATH, gnbRootList, isParentRoute,
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import './gnb.scss';
 
 const ParentGnbItem = ({ route }: { route: ParentRoute }) => {
   const { item = [] } = useParams();
