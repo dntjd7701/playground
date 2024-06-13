@@ -6,18 +6,17 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import './gnb.scss';
 
+// children을 가지고 있는 route object
 const ParentGnbItem = ({ route }: { route: ParentRoute }) => {
   const { item = [] } = useParams();
-  console.debug('item:', item);
-  const parentRoot = item.length > 0 ? routes[`/${item[0]}` as ROUTE_PATH] : routes['/'];
-  console.debug('parentRoot:', parentRoot);
+  const parentRoot = item.length > 0 ? routes[`/${item[0]}` as ROUTE_PATH] : routes['/']; //현재 경로의 시작점.
   const currentPath = ['', ...item].join('/') as ROUTE_PATH;
-  console.debug('currentPath:', currentPath);
+  const open = currentPath === route.link || (Array.isArray(route.children) && route.children.includes(currentPath));
 
   return (
     <li
       className={classNames('parent', `items-${parentRoot.children?.length}`, {
-        open: route.link === currentPath,
+        open,
       })}>
       <Link href={route.link}>{route.name}</Link>
       <ul className='subRoutes'>
@@ -29,6 +28,7 @@ const ParentGnbItem = ({ route }: { route: ParentRoute }) => {
   );
 };
 
+// children을 가지고 있지 않는 route object
 const ChildGnbItem = ({ route }: { route: ChildRoute }) => {
   const { item = [] } = useParams();
   const currentPath = ['', ...item].join('/') as ROUTE_PATH;
