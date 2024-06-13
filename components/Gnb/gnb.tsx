@@ -1,6 +1,6 @@
 'use client';
 
-import { ChildRoute, ParentRoute, ROUTE, ROUTE_PATH, gnbRootList, isParentRoute, routes } from '@/routes';
+import { ChildRoute, ParentRoute, ROUTE, ROUTE_PATH, gnbRootList, isParentRoute, routes } from './routes';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
