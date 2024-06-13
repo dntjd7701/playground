@@ -1,5 +1,7 @@
 'use client';
 
+import Accordian from '@/Accordian/Accordian';
+
 export const routePaths = ['/', '/blog', '/playground', '/playground/Accordian', '/playground/test'] as const;
 
 //routePaths의 요소에 해당 '/', '/blog', '/playground'...

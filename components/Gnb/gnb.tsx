@@ -15,13 +15,16 @@ const ParentGnbItem = ({ route }: { route: ParentRoute }) => {
 
   return (
     <li
-      className={classNames('parent', `items-${parentRoot.children?.length}`, {
+      className={classNames('parent', `items-${Array.isArray(parentRoot?.children) ? parentRoot.children.length : 0}`, {
         open,
       })}>
       <Link href={route.link}>{route.name}</Link>
       <ul className='subRoutes'>
         {route.children.map((r) => (
-          <GnbItem route={routes[r]} />
+          <GnbItem
+            key={route.key}
+            route={routes[r]}
+          />
         ))}
       </ul>
     </li>
