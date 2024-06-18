@@ -1,3 +1,6 @@
+'use client' +
+''
+
 import Markdown from 'react-markdown';
 import README from '/README.md';
 

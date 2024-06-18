@@ -1,8 +1,10 @@
 'use client';
 
+/** components */
 import Accordian from '@/Accordian/Accordian';
+import ImageViewer from "@/ImageViewer/ImageViewer";
 
-export const routePaths = ['/', '/blog', '/playground', '/playground/Accordian', '/playground/test'] as const;
+export const routePaths = ['/', '/blog', '/playground', '/playground/Accordian', '/playground/ImageViewer'] as const;
 
 //routePaths의 요소에 해당 '/', '/blog', '/playground'...
 export type ROUTE_PATH = (typeof routePaths)[number];
@@ -21,6 +23,8 @@ export type ChildRoute = BaseRoute & {
 
 export type ROUTE = ParentRoute | ChildRoute;
 
+// @ts-ignore
+// @ts-ignore
 export const routes: Record<ROUTE_PATH, ROUTE> = {
   '/': {
     key: '/',
@@ -38,7 +42,7 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: '/playground',
     link: '/playground',
     name: '놀이터',
-    children: ['/playground/Accordian', '/playground/test'],
+    children: ['/playground/Accordian', '/playground/ImageViewer'],
   },
   '/playground/Accordian': {
     key: '/playground/Accordian',
@@ -46,10 +50,10 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     name: '아코디언',
     children: null,
   },
-  '/playground/test': {
-    key: '/playground/test',
-    link: '/playground/test',
-    name: 'test',
+  '/playground/ImageViewer': {
+    key: '/playground/ImageViewer',
+    link: '/playground/ImageViewer',
+    name: 'ImageViewer',
     children: null,
   },
 };
