@@ -1,0 +1,17 @@
+{
+  "printWidth": 80,           // 한 줄의 최대 길이 (기본값: 80)
+  "tabWidth": 2,              // 탭 너비 (기본값: 2)
+  "useTabs": false,           // 탭 대신 스페이스 사용 (기본값: false)
+  "semi": true,               // 문장의 끝에 세미콜론 추가 (기본값: true)
+  "singleQuote": true,        // 홑따옴표 사용 (기본값: false)
+  "quoteProps": "as-needed",  // 객체 속성에 인용 부호를 사용 (기본값: "as-needed")
+  "jsxSingleQuote": false,    // JSX에서 홑따옴표 사용 (기본값: false)
+  "trailingComma": "es5",     // 후행 쉼표 추가 (기본값: "es5")
+  "bracketSpacing": true,     // 객체 리터럴에서 괄호 사이에 공백 삽입 (기본값: true)
+  "jsxBracketSameLine": false,// JSX에서 마지막 `>`를 다음 줄로 (기본값: false)
+  "arrowParens": "always",    // 화살표 함수 매개변수에 괄호 추가 (기본값: "always")
+  "proseWrap": "preserve",    // 마크다운에서 줄 바꿈 방식 (기본값: "preserve")
+  "htmlWhitespaceSensitivity": "css", // HTML 공백 민감도 (기본값: "css")
+  "endOfLine": "lf",          // 줄 바꿈 방식 (기본값: "lf")
+  "embeddedLanguageFormatting": "auto" // 임베디드 언어 포맷팅 (기본값: "auto")
+}

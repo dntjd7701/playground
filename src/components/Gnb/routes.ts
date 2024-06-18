@@ -1,10 +1,11 @@
 'use client';
 
 import Accordian from "@/components/Accordian/Accordian";
+import VanillaAccordian from "@/components/Accordian/VanillaAccordian";
 
 /** components */
 
-export const routePaths = ['/', '/blog', '/playground', '/playground/Accordian', '/playground/ImageViewer'] as const;
+export const routePaths = ['/', '/blog', '/playground', '/playground/Accordian', '/playground/VanillaAccordian', '/playground/ImageViewer'] as const;
 
 //routePaths의 요소에 해당 '/', '/blog', '/playground'...
 export type ROUTE_PATH = (typeof routePaths)[number];
@@ -42,7 +43,13 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: '/playground',
     link: '/playground',
     name: '놀이터',
-    children: ['/playground/Accordian', '/playground/ImageViewer'],
+    children: ['/playground/Accordian', '/playground/VanillaAccordian', '/playground/ImageViewer'],
+  },
+  '/playground/VanillaAccordian': {
+    key: '/playground/VanillaAccordian',
+    link: '/playground/VanillaAccordian',
+    name: '바닐라 아코디언',
+    children: VanillaAccordian,
   },
   '/playground/Accordian': {
     key: '/playground/Accordian',
