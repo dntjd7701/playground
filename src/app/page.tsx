@@ -1,13 +1,8 @@
-'use client' +
-''
+'use client'
 
-import Markdown from 'react-markdown';
 import README from '/README.md';
+import MarkdownWrapper from "@/components/MarkdownWrapper";
 
-const MainPage = () => (
-  <div className='markdown'>
-    <Markdown>{README}</Markdown>
-  </div>
-);
+const MainPage = () => <MarkdownWrapper README={README}/> ;
 
 export default MainPage;

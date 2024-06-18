@@ -20,9 +20,9 @@ const ParentGnbItem = ({ route }: { route: ParentRoute }) => {
       })}>
       <Link href={route.link}>{route.name}</Link>
       <ul className='subRoutes'>
-        {route.children.map((r) => (
+        {route.children.map((r: ROUTE_PATH, idx: number) => (
           <GnbItem
-            key={route.key}
+            key={idx}
             route={routes[r]}
           />
         ))}
@@ -55,9 +55,9 @@ const Gnb = () => {
       </Link>
 
       <ul className='mainRoutes'>
-        {gnbRootList.map((route: ROUTE) => (
+        {gnbRootList.map((route: ROUTE, idx: number) => (
           <GnbItem
-            key={route.key}
+            key={idx}
             route={route}
           />
         ))}

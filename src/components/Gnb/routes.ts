@@ -1,8 +1,8 @@
 'use client';
 
+import Accordian from "@/components/Accordian/Accordian";
+
 /** components */
-import Accordian from '@/Accordian/Accordian';
-import ImageViewer from "@/ImageViewer/ImageViewer";
 
 export const routePaths = ['/', '/blog', '/playground', '/playground/Accordian', '/playground/ImageViewer'] as const;
 
@@ -48,7 +48,7 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: '/playground/Accordian',
     link: '/playground/Accordian',
     name: '아코디언',
-    children: null,
+    children: Accordian,
   },
   '/playground/ImageViewer': {
     key: '/playground/ImageViewer',

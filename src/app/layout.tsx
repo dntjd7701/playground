@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.scss';
-import Gnb from '@/Gnb/gnb';
+import Gnb from '@/components/Gnb/gnb';
 
 export const metadata: Metadata = {
   title: 'WS Playground',
