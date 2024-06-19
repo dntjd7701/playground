@@ -1,6 +1,6 @@
 'use client';
 
-import Accordian from "@/components/Accordian/Accordian";
+import Index from "@/components/Accordian";
 import VanillaAccordian from "@/components/Accordian/VanillaAccordian";
 
 /** components */
@@ -15,9 +15,11 @@ export type BaseRoute = {
   link: ROUTE_PATH;
   name: string;
 };
+
 export type ParentRoute = BaseRoute & {
   children: ROUTE_PATH[];
 };
+
 export type ChildRoute = BaseRoute & {
   children: ((props: unknown) => JSX.Element) | null;
 };
@@ -31,7 +33,7 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: '/',
     link: '/',
     name: 'home',
-    children: ['/blog', '/playground'],
+    children: ["/blog", '/playground'],
   },
   '/blog': {
     key: '/blog',
@@ -55,7 +57,7 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: '/playground/Accordian',
     link: '/playground/Accordian',
     name: '아코디언',
-    children: Accordian,
+    children: Index,
   },
   '/playground/ImageViewer': {
     key: '/playground/ImageViewer',

@@ -1,22 +1,22 @@
 'use client';
 
-import {Component} from "react";
-import {isParentRoute, ROUTE, ROUTE_PATH, routes} from "@/components/Gnb/routes";
+import { isParentRoute, ROUTE, ROUTE_PATH, routes } from '@/components/Gnb/routes';
 
 const ItemPage = ({ params: { item } }: { params: { item: string[] } }) => {
-  const path = ['', ...item].join('/') as ROUTE_PATH;
-  const route: ROUTE = routes[path];
+	const path = ['', ...item].join('/') as ROUTE_PATH;
+	const route: ROUTE = routes[path];
 
-  if(!route) return null;
 
-  // 일단은 null로 보류, 나중에 뭘 채울지 고민해보자
-  if(isParentRoute(route)) {
-      return null
-  }
+	if (!route) return null;
 
-  const { children: Component }  = route;
+	// 일단은 null로 보류, 나중에 뭘 채울지 고민해보자
+	if (isParentRoute(route)) {
+		return null;
+	}
 
-  return Component ? <Component /> : null;
+	const { children: Component } = route;
+
+	return Component ? <Component /> : null;
 };
 
 export default ItemPage;
