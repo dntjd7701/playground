@@ -1,4 +1,12 @@
+import data from '@/components/Accordian/data';
+
 const Accordion1 = () => {
-  return <div>아코디언 1</div>;
+  return <div>
+    {data.map(d => {
+      return <div>
+        <h1>{d.title}</h1>
+      </div>
+    })}
+  </div>;
 };
 export default Accordion1;
