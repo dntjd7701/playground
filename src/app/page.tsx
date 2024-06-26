@@ -1,10 +1,8 @@
-import Markdown from 'react-markdown'
-import README from '/README.md'
+'use client'
 
-const MainPage = () => (
-  <div className="markdown">
-    <Markdown>{README}</Markdown>
-  </div>
-)
+import README from '/README.md';
+import MarkdownWrapper from "@/components/MarkdownWrapper";
 
-export default MainPage
+const MainPage = () => <MarkdownWrapper README={README}/> ;
+
+export default MainPage;
